@@ -278,7 +278,7 @@ async function onPrefChange() {
   }
 
   try {
-    const res = await fetch(`${PROXY_BASE_URL}?endpoint=XIT002&prefCode=${prefCode}`);
+    const res = await fetch(`${PROXY_BASE_URL}?endpoint=XIT002&area=${prefCode}`);
     const data = await res.json();
     citySelect.innerHTML = '<option value="">選択してください</option>';
     if (data.data && data.data.length > 0) {

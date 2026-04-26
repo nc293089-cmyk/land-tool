@@ -1,9 +1,10 @@
 export default async function handler(req, res) {
 
-  const allowedOrigins = [
-    'https://www.skool.com',
-    'https://skool.com',
-  ];
+ const allowedOrigins = [
+  'https://www.skool.com',
+  'https://skool.com',
+  'https://land-tool-38we.vercel.app',
+]; 
 
   const origin = req.headers.origin || '';
   if (allowedOrigins.some(o => origin.startsWith(o))) {

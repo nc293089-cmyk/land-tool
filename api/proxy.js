@@ -7,11 +7,11 @@ export default async function handler(req, res) {
 ]; 
 
   const origin = req.headers.origin || '';
-  if (allowedOrigins.some(o => origin.startsWith(o))) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-  } else {
-    return res.status(403).json({ error: 'Forbidden: origin not allowed' });
-  }
+if (!origin || allowedOrigins.some(o => origin.startsWith(o))) {
+  res.setHeader('Access-Control-Allow-Origin', origin || '*');
+} else {
+  return res.status(403).json({ error: 'Forbidden: origin not allowed' });
+}
 
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
